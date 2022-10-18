@@ -1,0 +1,6 @@
+- Limit the photo upload
+- Limit the size of the photos
+-Passswort 2 mal eingeben bei der Registrierung
+
+-make the review editable
+-Wenn es keine Review gibt, zeige an, dass man eine hinterlassen kann

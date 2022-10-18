@@ -1,0 +1,53 @@
+<% layout('layouts/boilerplate') %>
+    <div class="row">
+        <h1 class="text-center">Add a new Photo Spot</h1>
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form action="/photospots" method="POST" novalidate class="validated-form"
+                        enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Title</label>
+                            <input class="form-control" type="text" id="title" name="photospot[title]" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">A good Title is missing</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="location">Location</label>
+                            <input class="form-control" type="text" id="location" name="photospot[location]" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">The Location of the Photo Spot is missing</div>
+                        </div>
+
+                        <!-- <div class="mb-3">
+                <label class="form-label" for="image">Image URL</label>
+                <input class="form-control" type="text" id="image" name="photospot[image]" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">At least one image is needed</div>
+            </div> -->
+
+                        <div class="mb-3">
+                            <label class="form-label" for="description">Description </label>
+                            <textarea class="form-control" type="text" id="description" name="photospot[description]"
+                                required></textarea>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">A proper descriptions helps the people to find that Photo Spot
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="image" class="form-label">Choose Image(s)</label>
+                            <input class="form-control" type="file" id="image" name="image" multiple>
+                        </div>
+
+                        <div class="mb-3">
+                            <button class="btn btn-success">Add Photo Spot</button>
+                        </div>
+                    </form>
+                    <a href="/photospots">All Photo Spots</a>
+                </div>
+            </div>
+        </div>
+    </div>

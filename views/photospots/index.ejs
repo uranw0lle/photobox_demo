@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate') %>
+ 
+<div id="cluster-map"></div>
+<h1>All Photo Spots</h1>
+<div>
+    <a href="photospots/new">Add a new Photo Spot</a>
+</div>
+    <% for (photospot of photospots) { %>
+       <div class="card mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <%  if(photospot.images.length) {%> 
+                <img class="img-fluid" src="<%=photospot.images[0].url%>" alt="" >
+                <% } else { %> 
+                <img class="img-fluid" src="images/beispiel.jpg" class="img-fluid" alt="">
+                <% } %> 
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= photospot.title %> 
+                    </h5>
+                    <p class="card-text"><%= photospot.description %> </p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= photospot.location %></small>
+                    </p>
+                    <a crossorigin="anonymous" href="/photospots/<%= photospot._id %>" class="btn btn-primary">View <%= photospot.title %></a>
+                </div>
+            </div>
+        </div>
+       </div>
+        <% } %>
+</ul>
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const photospot = {features: <%-JSON.stringify(photospots)%>}
+</script>
+<script crossorigin="anonymous" src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+<script crossorigin="anonymous" src="/scripts/clusterMap.js"></script>
